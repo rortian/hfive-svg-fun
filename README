@@ -1,0 +1,4 @@
+This is my experiment with svg in html5.  I started with circle.svg and was able to 
+get it showing in IE9, FF4, and Chrome (but not Opera).
+
+I'm working on making scratch.html building up circle.html dynamically.
