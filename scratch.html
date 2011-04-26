@@ -15,6 +15,10 @@
             defs.append(paths[0])
 
             $('svg').append(defs)
+
+            var use = $('<use xlink:href="#circle0"></use>')
+
+            $('svg').append(use)
           });
     </script>
   </head>
