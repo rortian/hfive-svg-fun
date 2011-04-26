@@ -2,3 +2,6 @@ This is my experiment with svg in html5.  I started with circle.svg and was able
 get it showing in IE9, FF4, and Chrome (but not Opera).
 
 I'm working on making scratch.html building up circle.html dynamically.
+
+http://stackoverflow.com/questions/3642035/jquerys-append-not-working-with-svg-element
+shows what you need to get svg working
