@@ -14,6 +14,10 @@
 
             defs.append(paths[0])
 
+            var group = $('<g id="collection0"><use xlink:href="#circle0"></use></g>')
+
+            defs.append(group)
+
             $('svg').append(defs)
 
             var use = $('<use xlink:href="#circle0"></use>')
