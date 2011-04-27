@@ -12,11 +12,10 @@
         return el;
       }
 
-      
-
       $(document).ready(function(){
-          var circle= makeSVG('circle', {cx: 100, cy: 50, r:40, stroke: 'black', 'stroke-width': 2, fill: 'red'});
-          $('svg').append(circle)
+          var defs = makeSVG('defs',{})
+
+          $('svg').append(defs)
           });
     </script>
   </head>
