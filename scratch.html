@@ -13,7 +13,7 @@
       }
 
       function makeDefPath(){
-          return makeSVG('path',{d:hard_coded_path(),id:"circle0", style:"fill:#999966;fill-opacity:1"})
+          return makeSVG('path',{d:less_hard_coded(),id:"circle0", style:"fill:#999966;fill-opacity:1"})
       }
 
       path_parts = []
@@ -26,6 +26,10 @@
 
       function hard_coded_path(){
         return path_parts[0]+" "+path_parts[1]+" "+path_parts[2]+" "+path_parts[3]
+      }
+
+      function less_hard_coded(){
+        return "M 364.5,0 C 182.25,0 0,182.25 0,364.5 z"+path_parts[1]+" "+path_parts[2]+" "+path_parts[3]
       }
 
       $(document).ready(function(){
