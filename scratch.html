@@ -29,7 +29,11 @@
       }
 
       function less_hard_coded(){
-        return "M 364.5,0 C 182.25,0 0,182.25 0,364.5 z"+path_parts[1]+" "+path_parts[2]+" "+path_parts[3]
+        return first_part()+path_parts[1]+" "+path_parts[2]+" "+path_parts[3]
+      }
+
+      function first_part(){
+        return "M 364.5,0 C 182.25,0 0,182.25 0,364.5 z"
       }
 
       $(document).ready(function(){
