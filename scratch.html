@@ -33,7 +33,11 @@
       }
 
       function first_part(r){
-        return "M " + r/2 + ",0 C " + r/4 + ",0 0," + r/4 + " 0," + r/2 + " z"
+        return "M " + r/2 + ",0 " + figure_out_ellipse(r) + " z "
+      }
+
+      function figure_out_ellipse(r){
+        return "A " + r + "," + r + " -729 1,0 0,"+ r/2
       }
 
       $(document).ready(function(){
