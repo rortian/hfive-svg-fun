@@ -29,7 +29,7 @@
       }
 
       function less_hard_coded(){
-        return first_part(729.0)+path_parts[1]+" "+path_parts[2]+" "+path_parts[3]
+        return first_part(729.0)
       }
 
       function first_part(r){
@@ -37,7 +37,7 @@
       }
 
       function figure_out_ellipse(r){
-        return "A " + r + "," + r + " -729 1,0 0,"+ r/2
+        return "A " + r + "," + r + " 0 0,0 0,"+ r/2
       }
 
       $(document).ready(function(){
