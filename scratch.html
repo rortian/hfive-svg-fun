@@ -37,7 +37,8 @@
       }
 
       function figure_out_ellipse(r){
-        return "a"+r+","+r+" 0 0,0 "+(-r)+","+r
+        var first_leg = "a"+r+","+r+" 0 0,0 "+(-r)+","+r
+        return first_leg
       }
 
       $(document).ready(function(){
