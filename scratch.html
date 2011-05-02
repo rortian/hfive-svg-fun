@@ -33,11 +33,11 @@
       }
 
       function first_part(r){
-        return "M " + r/2 + ",0 " + figure_out_ellipse(r) + " z "
+        return "M " + r + ",0 " + figure_out_ellipse(r) + " z "
       }
 
       function figure_out_ellipse(r){
-        return "a346.5,346.5 0 0,0 -346.5,346.5"
+        return "a"+r+","+r+" 0 0,0 "+(-r)+","+r
       }
 
       $(document).ready(function(){
