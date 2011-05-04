@@ -21,7 +21,7 @@
       function defs(r){
         var defs = makeSVG('defs',{})
         var paths = []
-        paths[0] = makeDefPath()
+        paths[0] = makeDefPath(r)
         defs.appendChild(paths[0])
         $('svg').append(defs)
       }
@@ -59,12 +59,12 @@
 
       }
 
-      function makeDefPath(){
-          return makeSVG('path',{d:less_hard_coded(),id:"circle0", style:"fill:#999966;fill-opacity:1"})
+      function makeDefPath(r){
+          return makeSVG('path',{d:less_hard_coded(r),id:"circle0", style:"fill:#999966;fill-opacity:1"})
       }
 
-      function less_hard_coded(){
-        return first_part(346.5)
+      function less_hard_coded(r){
+        return first_part(r)
       }
 
       function first_part(r){
