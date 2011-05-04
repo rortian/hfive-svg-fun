@@ -12,6 +12,12 @@
         return el;
       }
 
+      function use_this(id){
+        var to_return = makeSVG('use')
+        to_return.setAttributeNS("http://www.w3.org/1999/xlink",'href',id)
+        return to_return
+      }
+
       function makeDefPath(){
           return makeSVG('path',{d:less_hard_coded(),id:"circle0", style:"fill:#999966;fill-opacity:1"})
       }
@@ -43,15 +49,11 @@
 
           $('svg').append(defs)
 
-          var use = makeSVG('use')
-
-          use.setAttributeNS("http://www.w3.org/1999/xlink",'href',"#circle0")
+          var use = use_this("#circle0")
 
           $('svg').append(use)
 
-          use = makeSVG('use')
-
-          use.setAttributeNS("http://www.w3.org/1999/xlink",'href',"#circle0")
+          use = use_this("#circle0")
 
           var group = makeSVG('g',{transform:"translate(346.5) rotate(90,182.5,182.5)"})
 
