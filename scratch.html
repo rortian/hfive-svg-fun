@@ -49,6 +49,10 @@
 
           $('svg').append(use)
 
+          use = makeSVG('use')
+
+          use.setAttributeNS("http://www.w3.org/1999/xlink",'href',"#circle0")
+
           var group = makeSVG('g',{transform:"translate(346.5)"})
 
           group.appendChild(use)
