@@ -18,6 +18,15 @@
         return to_return
       }
 
+
+      function defs(){
+        var defs = makeSVG('defs',{})
+        var paths = []
+        paths[0] = makeDefPath()
+        defs.appendChild(paths[0])
+        $('svg').append(defs)
+      }
+
       function makeDefPath(){
           return makeSVG('path',{d:less_hard_coded(),id:"circle0", style:"fill:#999966;fill-opacity:1"})
       }
@@ -39,15 +48,7 @@
       }
 
       $(document).ready(function(){
-          var defs = makeSVG('defs',{})
-
-          var paths = []
-
-          paths[0] = makeDefPath()
-
-          defs.appendChild(paths[0])
-
-          $('svg').append(defs)
+          defs()
 
           var use = use_this("#circle0")
 
