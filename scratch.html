@@ -18,7 +18,6 @@
         return to_return
       }
 
-
       function defs(){
         var defs = makeSVG('defs',{})
         var paths = []
@@ -27,29 +26,7 @@
         $('svg').append(defs)
       }
 
-      function makeDefPath(){
-          return makeSVG('path',{d:less_hard_coded(),id:"circle0", style:"fill:#999966;fill-opacity:1"})
-      }
-
-      function less_hard_coded(){
-        return first_part(346.5)
-      }
-
-      function first_part(r){
-        return "M " + r + ",0 " + figure_out_ellipse(r) + " z "
-      }
-
-      function figure_out_ellipse(r){
-        var first_leg = "a"+r+","+r+" 0 0,0 "+(-r)+","+r
-        var second_leg = "a"+r/3+","+r/3+" 0 0,1 "+2*r/3+",0"
-        var third_leg = "a"+r/3+","+r/3+" 0 0,1 "+r/3+","+(-r/3)
-        var fourth_leg = "a"+r/3+","+r/3+" 0 0,1 0,"+(-2*r/3)
-        return first_leg + second_leg + third_leg + fourth_leg
-      }
-
-      $(document).ready(function(){
-          defs()
-
+      function make_circle(r){
           var use = use_this("#circle0")
 
           $('svg').append(use)
@@ -79,6 +56,33 @@
           group.appendChild(use)
 
           $('svg').append(group)
+
+      }
+
+      function makeDefPath(){
+          return makeSVG('path',{d:less_hard_coded(),id:"circle0", style:"fill:#999966;fill-opacity:1"})
+      }
+
+      function less_hard_coded(){
+        return first_part(346.5)
+      }
+
+      function first_part(r){
+        return "M " + r + ",0 " + figure_out_ellipse(r) + " z "
+      }
+
+      function figure_out_ellipse(r){
+        var first_leg = "a"+r+","+r+" 0 0,0 "+(-r)+","+r
+        var second_leg = "a"+r/3+","+r/3+" 0 0,1 "+2*r/3+",0"
+        var third_leg = "a"+r/3+","+r/3+" 0 0,1 "+r/3+","+(-r/3)
+        var fourth_leg = "a"+r/3+","+r/3+" 0 0,1 0,"+(-2*r/3)
+        return first_leg + second_leg + third_leg + fourth_leg
+      }
+
+      $(document).ready(function(){
+          defs()
+
+          make_circle(346.5)
           });
     </script>
   </head>
