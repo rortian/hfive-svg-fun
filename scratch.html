@@ -5,74 +5,68 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js" type="text/javascript"></script>
     <script type="text/javascript">
 
-      function makeSVG(tag, attrs) {
-        var el= document.createElementNS('http://www.w3.org/2000/svg', tag);
-        for (var k in attrs)
-          el.setAttribute(k, attrs[k]);
-        return el;
-      }
+function makeSVG(tag, attrs) {
+  var el= document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (var k in attrs)
+    el.setAttribute(k, attrs[k]);
+  return el;
+}
 
-      function use_this(id){
-        var to_return = makeSVG('use')
-        to_return.setAttributeNS("http://www.w3.org/1999/xlink",'href',id)
-        return to_return
-      }
+function use_this(id){
+  var to_return = makeSVG('use')
+  to_return.setAttributeNS("http://www.w3.org/1999/xlink",'href',id)
+  return to_return
+}
 
-      function defs(r){
-        var defs = makeSVG('defs',{})
-        var paths = []
-        paths[0] = makeDefPath(r)
-        defs.appendChild(paths[0])
-        $('svg').append(defs)
-      }
+function defs(r){
+  var defs = makeSVG('defs',{})
+  var paths = []
+  paths[0] = makeDefPath(r)
+  defs.appendChild(paths[0])
+  $('svg').append(defs)
+}
 
-      function make_circle(r){
-          var all = makeSVG('g',{id:'#all0'})
-          var use = use_this("#circle0")
+function make_circle(r){
+  var all = makeSVG('g',{id:'#all0'})
+  var use = use_this("#circle0")
 
-          all.appendChild(use)
+  all.appendChild(use)
 
-          all.appendChild(quad_one(r))
+  all.appendChild(quad_one(r))
 
-          all.appendChild(quad_three(r))
+  all.appendChild(quad_three(r))
 
-          group = makeSVG('g',{transform:"translate(346.5,346.5) rotate(180,182.5,182.5)"})
+  all.appendChild(quad_four(r))
 
-          use = use_this("#circle0")
+  $('svg').append(all)
 
-          group.appendChild(use)
+}
 
-          all.appendChild(quad_four(r))
+function quad_one(r){
+  var use = use_this("#circle0")
 
-          $('svg').append(all)
+  var transform_string = "translate("+r+") rotate(90,"
+  transform_string += r/2 +","+ r/2 +")"
 
-      }
+  var group = makeSVG('g',{transform:transform_string})
 
-      function quad_one(r){
-          var use = use_this("#circle0")
+  group.appendChild(use)
 
-          var transform_string = "translate("+r+") rotate(90,"
-          transform_string += r/2 +","+ r/2 +")"
+  return group;
+}
 
-          var group = makeSVG('g',{transform:transform_string})
+function quad_three(r){
+  var use = use_this("#circle0")
 
-          group.appendChild(use)
+  var transform_string = "translate(0,"+r+") rotate(-90,"
+  transform_string += r/2 +","+ r/2 +")"
 
-          return group;
-      }
+  var group = makeSVG('g',{transform:transform_string})
 
-      function quad_three(r){
-          var use = use_this("#circle0")
+  group.appendChild(use)
 
-          var transform_string = "translate(0,"+r+") rotate(-90,"
-          transform_string += r/2 +","+ r/2 +")"
-
-          var group = makeSVG('g',{transform:transform_string})
-
-          group.appendChild(use)
-
-          return group;
-      }
+  return group;
+}
 
       function quad_four(r){
           var use = use_this("#circle0")
