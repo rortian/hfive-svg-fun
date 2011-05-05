@@ -32,17 +32,11 @@
 
           all.appendChild(use)
 
-          use = use_this("#circle0")
-
-          var group = makeSVG('g',{transform:"translate(346.5) rotate(90,182.5,182.5)"})
-
-          group.appendChild(use)
-
-          all.appendChild(group)
+          all.appendChild(quad_one(r))
 
           use = use_this("#circle0")
 
-          group = makeSVG('g',{transform:"translate(0,346.5) rotate(-90,182.5,182.5)"})
+          var group = makeSVG('g',{transform:"translate(0,346.5) rotate(-90,182.5,182.5)"})
 
           use = use_this("#circle0")
 
@@ -59,6 +53,17 @@
           all.appendChild(group)
 
           $('svg').append(all)
+
+      }
+
+      function quad_one(r){
+          var use = use_this("#circle0")
+
+          var group = makeSVG('g',{transform:"translate(346.5) rotate(90,182.5,182.5)"})
+
+          group.appendChild(use)
+
+          return group;
 
       }
 
