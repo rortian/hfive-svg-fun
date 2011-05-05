@@ -42,7 +42,7 @@
 
           group.appendChild(use)
 
-          all.appendChild(group)
+          all.appendChild(quad_three(r))
 
           group = makeSVG('g',{transform:"translate(346.5,346.5) rotate(180,182.5,182.5)"})
 
@@ -67,7 +67,19 @@
           group.appendChild(use)
 
           return group;
+      }
 
+      function quad_three(r){
+          var use = use_this("#circle0")
+
+          var transform_string = "translate(0,"+r+") rotate(-90,"
+          transform_string += r/2 +","+ r/2 +")"
+
+          var group = makeSVG('g',{transform:transform_string})
+
+          group.appendChild(use)
+
+          return group;
       }
 
       function makeDefPath(r){
