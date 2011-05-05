@@ -6,4 +6,4 @@ I'm working on making scratch.html building up circle.html dynamically.
 http://stackoverflow.com/questions/3642035/jquerys-append-not-working-with-svg-element
 shows what you need to get svg working
 
-I am going to attempt to abandon the curve to commands with ellipse ones.
+The original (made using inkscape) used curved line commands (C), now it is using the much more efficient (in this case) ellipse commands (a).
