@@ -88,11 +88,7 @@
       }
 
       function makeDefPath(r){
-          return makeSVG('path',{d:less_hard_coded(r),id:"circle0", style:"fill:#999966;fill-opacity:1"})
-      }
-
-      function less_hard_coded(r){
-        return first_part(r)
+          return makeSVG('path',{d:first_part(r),id:"circle0", style:"fill:#999966;fill-opacity:1"})
       }
 
       function first_part(r){
