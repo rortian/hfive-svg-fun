@@ -59,7 +59,10 @@
       function quad_one(r){
           var use = use_this("#circle0")
 
-          var group = makeSVG('g',{transform:"translate(346.5) rotate(90,182.5,182.5)"})
+          var transform_string = "translate("+r+") rotate(90,"
+          transform_string += r/2 +","+ r/2 +")"
+
+          var group = makeSVG('g',{transform:transform_string})
 
           group.appendChild(use)
 
