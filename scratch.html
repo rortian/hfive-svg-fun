@@ -28,7 +28,11 @@ function defs(args){
 
 
 function define_paths(args){
-  return [makeDefPath(args)]
+  var to_return = []
+  for(var k in args.rs){
+    to_return[k] = makeDefPath({r:args.rs[k],num:k,color:args.colors[k]}) 
+  }
+  return to_return
 }
 
 function make_circle(args){
@@ -89,8 +93,9 @@ function quad_four(args){
   return group;
 }
 
-function makeDefPath(r){
-  return makeSVG('path',{d:first_part(r),id:"circle0", style:"fill:#999966;fill-opacity:1"})
+function makeDefPath(args){
+  var style = "fill:"+args.color+";fill-opacity:1"
+  return makeSVG('path',{d:first_part(args.r),id:"circle"+args.num, style:style})
 }
 
 function first_part(r){
@@ -106,7 +111,7 @@ function figure_out_ellipse(r){
 }
 
 function make_design(){
-  defs(346.5)
+  defs({rs:[346.5],colors:["#999966"]})
 
   $('svg').append(make_circle({r:346.5,num:0}))
 }
