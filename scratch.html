@@ -32,24 +32,24 @@ function define_paths(args){
 }
 
 function make_circle(args){
-  var r = args.r
   var all = makeSVG('g',{id:"#all"+args.num})
   var use = use_this("#circle"+args.num)
 
   all.appendChild(use)
 
-  all.appendChild(quad_one(r))
+  all.appendChild(quad_one(args))
 
-  all.appendChild(quad_three(r))
+  all.appendChild(quad_three(args))
 
-  all.appendChild(quad_four(r))
+  all.appendChild(quad_four(args))
 
   return all
 
 }
 
-function quad_one(r){
-  var use = use_this("#circle0")
+function quad_one(args){
+  var r = args.r
+  var use = use_this("#circle"+args.num)
 
   var transform_string = "translate("+r+") rotate(90,"
   transform_string += r/2 +","+ r/2 +")"
@@ -61,8 +61,9 @@ function quad_one(r){
   return group;
 }
 
-function quad_three(r){
-  var use = use_this("#circle0")
+function quad_three(args){
+  var r = args.r
+  var use = use_this("#circle"+args.num)
 
   var transform_string = "translate(0,"+r+") rotate(-90,"
   transform_string += r/2 +","+ r/2 +")"
@@ -74,8 +75,9 @@ function quad_three(r){
   return group;
 }
 
-function quad_four(r){
-  var use = use_this("#circle0")
+function quad_four(args){
+  var r = args.r
+  var use = use_this("#circle"+args.num)
 
   var transform_string = "translate("+r+","+r+") rotate(180,"
   transform_string += r/2 +","+ r/2 +")"
