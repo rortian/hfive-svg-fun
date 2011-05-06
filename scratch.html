@@ -26,6 +26,11 @@ function defs(r){
   $('svg').append(defs)
 }
 
+
+function define_paths(args){
+  
+}
+
 function make_circle(args){
   var r = args.r
   var all = makeSVG('g',{id:"#all"+args.num})
@@ -98,10 +103,14 @@ function figure_out_ellipse(r){
   return first_leg + second_leg + third_leg + fourth_leg
 }
 
-$(document).ready(function(){
+function make_design(){
   defs(346.5)
 
   $('svg').append(make_circle({r:346.5,num:0}))
+}
+
+$(document).ready(function(){
+    make_design()
 });
     </script>
   </head>
