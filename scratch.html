@@ -38,7 +38,7 @@ function make_circle(r){
 
   all.appendChild(quad_four(r))
 
-  $('svg').append(all)
+  return all
 
 }
 
@@ -100,7 +100,7 @@ function figure_out_ellipse(r){
 $(document).ready(function(){
   defs(346.5)
 
-  make_circle(346.5)
+  $('svg').append(make_circle(346.5))
 });
     </script>
   </head>
