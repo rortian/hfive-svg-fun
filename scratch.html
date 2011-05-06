@@ -18,17 +18,17 @@ function use_this(id){
   return to_return
 }
 
-function defs(r){
+function defs(args){
   var defs = makeSVG('defs',{})
-  var paths = []
-  paths[0] = makeDefPath(r)
-  defs.appendChild(paths[0])
+  var paths = define_paths(args)
+  for(var k in paths)
+    defs.appendChild(paths[k])
   $('svg').append(defs)
 }
 
 
 function define_paths(args){
-  
+  return [makeDefPath(args)]
 }
 
 function make_circle(args){
