@@ -26,9 +26,10 @@ function defs(r){
   $('svg').append(defs)
 }
 
-function make_circle(r){
-  var all = makeSVG('g',{id:'#all0'})
-  var use = use_this("#circle0")
+function make_circle(args){
+  var r = args.r
+  var all = makeSVG('g',{id:"#all"+args.num})
+  var use = use_this("#circle"+args.num)
 
   all.appendChild(use)
 
@@ -100,7 +101,7 @@ function figure_out_ellipse(r){
 $(document).ready(function(){
   defs(346.5)
 
-  $('svg').append(make_circle(346.5))
+  $('svg').append(make_circle({r:346.5,num:0}))
 });
     </script>
   </head>
