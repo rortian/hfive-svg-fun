@@ -68,40 +68,40 @@ function quad_three(r){
   return group;
 }
 
-      function quad_four(r){
-          var use = use_this("#circle0")
+function quad_four(r){
+  var use = use_this("#circle0")
 
-          var transform_string = "translate("+r+","+r+") rotate(180,"
-          transform_string += r/2 +","+ r/2 +")"
+  var transform_string = "translate("+r+","+r+") rotate(180,"
+  transform_string += r/2 +","+ r/2 +")"
 
-          var group = makeSVG('g',{transform:transform_string})
+  var group = makeSVG('g',{transform:transform_string})
 
-          group.appendChild(use)
+  group.appendChild(use)
 
-          return group;
-      }
+  return group;
+}
 
-      function makeDefPath(r){
-          return makeSVG('path',{d:first_part(r),id:"circle0", style:"fill:#999966;fill-opacity:1"})
-      }
+function makeDefPath(r){
+  return makeSVG('path',{d:first_part(r),id:"circle0", style:"fill:#999966;fill-opacity:1"})
+}
 
-      function first_part(r){
-        return "M " + r + ",0 " + figure_out_ellipse(r) + " z "
-      }
+function first_part(r){
+  return "M " + r + ",0 " + figure_out_ellipse(r) + " z "
+}
 
-      function figure_out_ellipse(r){
-        var first_leg = "a"+r+","+r+" 0 0,0 "+(-r)+","+r
-        var second_leg = "a"+r/3+","+r/3+" 0 0,1 "+2*r/3+",0"
-        var third_leg = "a"+r/3+","+r/3+" 0 0,1 "+r/3+","+(-r/3)
-        var fourth_leg = "a"+r/3+","+r/3+" 0 0,1 0,"+(-2*r/3)
-        return first_leg + second_leg + third_leg + fourth_leg
-      }
+function figure_out_ellipse(r){
+  var first_leg = "a"+r+","+r+" 0 0,0 "+(-r)+","+r
+  var second_leg = "a"+r/3+","+r/3+" 0 0,1 "+2*r/3+",0"
+  var third_leg = "a"+r/3+","+r/3+" 0 0,1 "+r/3+","+(-r/3)
+  var fourth_leg = "a"+r/3+","+r/3+" 0 0,1 0,"+(-2*r/3)
+  return first_leg + second_leg + third_leg + fourth_leg
+}
 
-      $(document).ready(function(){
-          defs(346.5)
+$(document).ready(function(){
+  defs(346.5)
 
-          make_circle(346.5)
-          });
+  make_circle(346.5)
+});
     </script>
   </head>
   <body>
