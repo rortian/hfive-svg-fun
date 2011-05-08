@@ -36,7 +36,7 @@ function define_collections(args){
   var to_return = []
   var smallest_index = args.rs.length - 1
   var smallest = makeSVG('g',{id:"collection"+smallest_index})
-  smallest.appendChild(use_this("#all"+smallest_index-1))
+  smallest.appendChild(use_this("#all"+(smallest_index-1)))
   var smaller = smaller_circles({num:smallest_index,r:args.rs[smallest_index],ref:"all"})
   to_return.push(smallest)
   var holder = makeSVG('g',{id:"collection0"})
