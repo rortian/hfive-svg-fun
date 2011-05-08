@@ -21,9 +21,18 @@ function use_this(id){
 function defs(args){
   var defs = makeSVG('defs',{})
   var paths = define_paths(args)
+  var circles = define_circles(args)
   for(var k in paths)
     defs.appendChild(paths[k])
   $('svg').append(defs)
+}
+
+function define_circles(args){
+  var to_return = []
+  var rs = args.rs
+  for(var k in rs){
+    to_return[k] = make_circle({num:k,r:rs[k]})
+  }
 }
 
 
