@@ -48,8 +48,8 @@ function define_paths(args){
 }
 
 function make_circle(args){
-  var all = makeSVG('g',{id:"#all"+args.num})
-  var use = use_this("#circle"+args.num)
+  var all = makeSVG('g',{id:"all"+args.num})
+  var use = use_this("circle"+args.num)
 
   all.appendChild(use)
 
