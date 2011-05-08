@@ -183,9 +183,10 @@ function make_design(params){
   var rs = []
   var colors = []
   for(var i = 0;i<params.iterations;i++){
-    rs[i] = params.r / (3^i)
+    rs[i] = params.r / (Math.pow(3,i))
     colors[i] = params.colors[i % params.colors.length]
   }
+  console.log(rs)
   var ds = defs({rs:rs,colors:colors})
   $('svg').append(ds)
   $('svg').append(use_this("#collection0"))
