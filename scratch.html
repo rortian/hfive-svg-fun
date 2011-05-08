@@ -34,7 +34,9 @@ function defs(args){
 
 function define_collections(args){
   var to_return = []
-
+  var holder = makeSVG('g',{id:"collection0"})
+  holder.appendChild(use_this("#all0"))
+  to_return[0] = holder
   return to_return
 }
 
