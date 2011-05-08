@@ -25,8 +25,6 @@ function defs(args){
   var collections = define_collections(args)
   for(var k in paths)
     defs.appendChild(paths[k])
-  for(var k in circles)
-    defs.appendChild(circles[k])
   for(var k in collections)
     defs.appendChild(collections[k])
   return defs
@@ -38,13 +36,13 @@ function define_collections(args){
   var smallest_index = rs.length - 1
   var smallest = makeSVG('g',{id:"collection"+(smallest_index-1)})
   smallest.appendChild(use_this("#all"+(smallest_index-1)))
-  var smaller = smaller_circles({num:smallest_index,r:rs[smallest_index],ref:"all"})
+  var smaller = smaller_circles({num:smallest_index,r:rs[smallest_index],ref:"circle"})
   for(var k in smaller)
     smallest.appendChild(smaller[k])
   to_return.push(smallest)
   for(var i =smallest_index-2;i>=0;i--){
     var holder = makeSVG('g',{id:"collection"+i})
-    holder.appendChild(use_this("#all"+i))
+    holder.appendChild(use_this("#circle"+i))
     smaller = smaller_circles({num:(i+1),r:rs[i+1],ref:"collection"})
     for(var k in smaller)
       holder.appendChild(smaller[k])
@@ -192,7 +190,7 @@ function make_design(params){
 }
 
 $(document).ready(function(){
-    make_design({iterations:7})
+    make_design({iterations:5})
 });
     </script>
   </head>
