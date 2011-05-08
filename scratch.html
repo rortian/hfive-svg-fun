@@ -22,11 +22,20 @@ function defs(args){
   var defs = makeSVG('defs',{})
   var paths = define_paths(args)
   var circles = define_circles(args)
+  var collections = define_collections(args)
   for(var k in paths)
     defs.appendChild(paths[k])
   for(var k in circles)
     defs.appendChild(circles[k])
+  for(var k in collections)
+    defs.appendChild(collections[k])
   $('svg').append(defs)
+}
+
+function define_collections(args){
+  var to_return = []
+
+  return to_return
 }
 
 function define_circles(args){
