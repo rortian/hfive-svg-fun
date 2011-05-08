@@ -170,14 +170,29 @@ function figure_out_ellipse(r){
   return first_leg + second_leg + third_leg + fourth_leg
 }
 
-function make_design(){
+function make_design(params){
+  if(params.iterations == undefined){
+    params['iterations'] = 4
+  }
+  if(params.colors == undefined){
+    params['colors'] = ["#999966","#333333","#006666"]
+  }
+  if(params.r == undefined){
+    params['r'] = 364.5
+  }
+  var rs = []
+  var colors = []
+  for(var i = 0;i<params.iterations;i++){
+    rs[i] = params.r / (3^i)
+    colors[i] = params.colors[i % params.colors.length]
+  }
   var ds = defs({rs:[364.5,364.5/3,364.5/9,364.5/27],colors:["#999966","#333333","#006666","#999966"]})
   $('svg').append(ds)
   $('svg').append(use_this("#collection0"))
 }
 
 $(document).ready(function(){
-    make_design()
+    make_design({})
 });
     </script>
   </head>
