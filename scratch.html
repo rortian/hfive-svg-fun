@@ -45,7 +45,9 @@ function define_collections(args){
 
 function smaller_circles(){
   var to_return = []
-  var group = makeSVG('g',{transform:"translate(231)"})
+  var x_correction = 231
+  var transform = "translate("+x_correction+")"
+  var group = makeSVG('g',{transform:transform})
   group.appendChild(use_this("#all1"))
   to_return[0] = group
   return to_return
