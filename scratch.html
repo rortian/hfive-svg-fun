@@ -36,7 +36,17 @@ function define_collections(args){
   var to_return = []
   var holder = makeSVG('g',{id:"collection0"})
   holder.appendChild(use_this("#all0"))
+  var smaller = smaller_circles()
   to_return[0] = holder
+  return to_return
+}
+
+function smaller_circles(){
+  var to_return = []
+
+  var group = makeSVG('g',{transform:"translate(231)"})
+  group.appendChild(use_this("#all1"))
+
   return to_return
 }
 
@@ -133,10 +143,7 @@ function figure_out_ellipse(r){
 function make_design(){
   defs({rs:[346.5,346.5/3],colors:["#999966","#333333"]})
 
-  $('svg').append(use_this("#all0"))
-  var group = makeSVG('g',{transform:"translate(231)"})
-  group.appendChild(use_this("#all1"))
-  $('svg').append(group)
+  $('svg').append(use_this("#collection0"))
 }
 
 $(document).ready(function(){
