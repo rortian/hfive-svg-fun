@@ -153,11 +153,23 @@ function quad_four(args){
 
 function make_def_path(args){
   var style = "fill:"+args.color+";fill-opacity:1"
-  return makeSVG('path',{d:first_part(args.r),id:"circle"+args.num, style:style})
+  return makeSVG('path',{d:first_part(args.r)+second_part(args.r),id:"circle"+args.num, style:style})
 }
 
 function first_part(r){
   return "M " + r + ",0 " + figure_out_ellipse(r) + " z "
+}
+
+function second_part(r){
+  return "M " + r + ",0 " + right_ellipse(r) + " z "
+}
+
+function right_ellipse(r){
+  var first_leg = "a"+r+","+r+" 0 0,0 "+r+","+r
+  var second_leg = "a"+r/3+","+r/3+" 0 0,1 "+2*r/3+",0"
+  var third_leg = "a"+r/3+","+r/3+" 0 0,1 "+r/3+","+(-r/3)
+  var fourth_leg = "a"+r/3+","+r/3+" 0 0,1 0,"+(-2*r/3)
+  return first_leg + second_leg + third_leg + fourth_leg
 }
 
 function figure_out_ellipse(r){
@@ -190,7 +202,7 @@ function make_design(params){
 }
 
 $(document).ready(function(){
-    make_design({iterations:6})
+    make_design({iterations:5})
 });
     </script>
   </head>
