@@ -39,7 +39,7 @@ function define_collections(args){
   var smaller = smaller_circles({num:1,r:364.5/3,ref:"all"})
   for(var k in smaller)
     holder.appendChild(smaller[k])
-  to_return[0] = holder
+  to_return.push(holder)
   return to_return
 }
 
