@@ -45,13 +45,12 @@ function define_collections(args){
 
 function smaller_circles(){
   var to_return = []
-  var x_correction = 231
-  var d = 346.5*2/3
-  var transform = "translate("+x_correction+")"
+  var d = 364.5*2/3
+  var transform = "translate("+d+")"
   var group = makeSVG('g',{transform:transform})
   group.appendChild(use_this("#all1"))
   to_return[0] = group
-  transform = "translate("+x_correction+","+d+")"
+  transform = "translate("+d+","+d+")"
   group = makeSVG('g',{transform:transform})
   group.appendChild(use_this("#all1"))
   to_return[1] = group
