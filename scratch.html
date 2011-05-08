@@ -36,14 +36,14 @@ function define_collections(args){
   var to_return = []
   var holder = makeSVG('g',{id:"collection0"})
   holder.appendChild(use_this("#all0"))
-  var smaller = smaller_circles()
+  var smaller = smaller_circles({num:1,r:364.5/3,ref:"all"})
   for(var k in smaller)
     holder.appendChild(smaller[k])
   to_return[0] = holder
   return to_return
 }
 
-function smaller_circles(){
+function smaller_circles(args){
   var to_return = []
   var d = 364.5*2/3
   var transform = "translate("+d+")"
