@@ -153,7 +153,7 @@ function quad_four(args){
 
 function make_def_path(args){
   var style = "fill:"+args.color+";fill-opacity:1"
-  var path = first_part(args.r)+second_part(args.r)
+  var path = first_part(args.r)+second_part(args.r)+third_part(args.r)+fourth_part(args.r)
   return makeSVG('path',{d:path,id:"circle"+args.num, style:style})
 }
 
@@ -161,8 +161,16 @@ function first_part(r){
   return "M " + r + ",0 " + figure_out_ellipse(r) + " z "
 }
 
+function third_part(r){
+  return "M " + r + ","+ 2*r + figure_out_ellipse(r) + " z "
+}
+
 function second_part(r){
   return "M " + r + ",0 " + right_ellipse(r) + " z "
+}
+
+function fourth_part(r){
+  return "M " + r + ","+ 2*r + right_ellipse(r) + " z "
 }
 
 function right_ellipse(r){
@@ -208,6 +216,6 @@ $(document).ready(function(){
     </script>
   </head>
   <body>
-    <svg version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="729" height="729"></svg>
+    <svg version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="729" height="1429"></svg>
   </body>
 </html>
