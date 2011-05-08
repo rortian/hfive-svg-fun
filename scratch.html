@@ -39,7 +39,7 @@ function define_circles(args){
 function define_paths(args){
   var to_return = []
   for(var k in args.rs){
-    to_return[k] = makeDefPath({r:args.rs[k],num:k,color:args.colors[k]}) 
+    to_return[k] = make_def_path({r:args.rs[k],num:k,color:args.colors[k]}) 
   }
   return to_return
 }
@@ -102,7 +102,7 @@ function quad_four(args){
   return group;
 }
 
-function makeDefPath(args){
+function make_def_path(args){
   var style = "fill:"+args.color+";fill-opacity:1"
   return makeSVG('path',{d:first_part(args.r),id:"circle"+args.num, style:style})
 }
