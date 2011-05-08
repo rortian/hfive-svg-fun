@@ -45,26 +45,27 @@ function define_collections(args){
 
 function smaller_circles(args){
   var to_return = []
-  var d = 364.5*2/3
+  var d = 2*args.r
+  var using = "#" + args.ref + args.num
   var transform = "translate("+d+")"
   var group = makeSVG('g',{transform:transform})
-  group.appendChild(use_this("#all1"))
+  group.appendChild(use_this(using))
   to_return[0] = group
   transform = "translate("+d+","+d+")"
   group = makeSVG('g',{transform:transform})
-  group.appendChild(use_this("#all1"))
+  group.appendChild(use_this(using))
   to_return[1] = group
   transform = "translate(0,"+d+")"
   group = makeSVG('g',{transform:transform})
-  group.appendChild(use_this("#all1"))
+  group.appendChild(use_this(using))
   to_return[2] = group
   transform = "translate("+2*d+","+d+")"
   group = makeSVG('g',{transform:transform})
-  group.appendChild(use_this("#all1"))
+  group.appendChild(use_this(using))
   to_return[3] = group
   transform = "translate("+d+","+2*d+")"
   group = makeSVG('g',{transform:transform})
-  group.appendChild(use_this("#all1"))
+  group.appendChild(use_this(using))
   to_return[4] = group
   return to_return
 }
