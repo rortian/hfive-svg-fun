@@ -29,7 +29,7 @@ function defs(args){
     defs.appendChild(circles[k])
   for(var k in collections)
     defs.appendChild(collections[k])
-  $('svg').append(defs)
+  return defs
 }
 
 function define_collections(args){
@@ -141,8 +141,8 @@ function figure_out_ellipse(r){
 }
 
 function make_design(){
-  defs({rs:[346.5,346.5/3],colors:["#999966","#333333"]})
-
+  var ds = defs({rs:[346.5,346.5/3],colors:["#999966","#333333"]})
+  $('svg').append(ds)
   $('svg').append(use_this("#collection0"))
 }
 
