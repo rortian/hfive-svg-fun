@@ -24,6 +24,8 @@ function defs(args){
   var circles = define_circles(args)
   for(var k in paths)
     defs.appendChild(paths[k])
+  for(var k in circles)
+    defs.appendChild(circles[k])
   $('svg').append(defs)
 }
 
@@ -33,6 +35,7 @@ function define_circles(args){
   for(var k in rs){
     to_return[k] = make_circle({num:k,r:rs[k]})
   }
+  return to_return
 }
 
 
@@ -122,7 +125,7 @@ function figure_out_ellipse(r){
 function make_design(){
   defs({rs:[346.5,346.5/3],colors:["#999966","#333333"]})
 
-  $('svg').append(make_circle({r:346.5,num:0}))
+  $('svg').append(use_this("#all0"))
   var group = makeSVG('g',{transform:"translate(231)"})
   group.appendChild(use_this("#circle1"))
   $('svg').append(group)
