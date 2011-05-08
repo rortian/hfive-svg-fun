@@ -62,6 +62,10 @@ function smaller_circles(){
   group = makeSVG('g',{transform:transform})
   group.appendChild(use_this("#all1"))
   to_return[3] = group
+  transform = "translate("+d+","+2*d+")"
+  group = makeSVG('g',{transform:transform})
+  group.appendChild(use_this("#all1"))
+  to_return[4] = group
   return to_return
 }
 
