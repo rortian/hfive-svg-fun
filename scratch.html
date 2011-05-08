@@ -153,7 +153,8 @@ function quad_four(args){
 
 function make_def_path(args){
   var style = "fill:"+args.color+";fill-opacity:1"
-  return makeSVG('path',{d:first_part(args.r)+second_part(args.r),id:"circle"+args.num, style:style})
+  var path = first_part(args.r)+second_part(args.r)
+  return makeSVG('path',{d:path,id:"circle"+args.num, style:style})
 }
 
 function first_part(r){
