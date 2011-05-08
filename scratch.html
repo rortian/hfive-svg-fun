@@ -186,7 +186,7 @@ function make_design(params){
     rs[i] = params.r / (3^i)
     colors[i] = params.colors[i % params.colors.length]
   }
-  var ds = defs({rs:[364.5,364.5/3,364.5/9,364.5/27],colors:["#999966","#333333","#006666","#999966"]})
+  var ds = defs({rs:rs,colors:colors})
   $('svg').append(ds)
   $('svg').append(use_this("#collection0"))
 }
