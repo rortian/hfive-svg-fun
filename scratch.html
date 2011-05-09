@@ -179,6 +179,8 @@ $(document).ready(function(){
     <script>
 angular.widget('fractal:circle',function(compileElement){
   var compiler = this
+  var what_value = compileElement.attr('what');
+  alert(what_value)
   return function(linkElement){
     linkElement.append(make_design({iterations:4,offset:3,r:729/6,ns:"hithere"}))
   }
@@ -195,7 +197,9 @@ FractalController.prototype = {
   </head>
   <body>
     <div ng:controller="FractalController">
-      <fractal:circle></fractal:circle>
+      <div ng:repeat="f in fun">
+        <fractal:circle what="{{$index}}"></fractal:circle>
+      </div>
     </div>
   </body>
 </html>
