@@ -192,7 +192,8 @@ function FractalController($resource){
     {format:'json',jsonCallback:'JSON_CALLBACK'},
     {"new":{method:'JSON',isArray:true,params:{what:"new"}},
      "top":{method:'JSON',isArray:true,params:{what:"top"}},
-      search:{method:'JSON',isArray:true} }
+     search:{method:'JSON',isArray:true},
+     random:{method:'JSON',isArray:true,params:{what:"random"}}}
   )
   this.gallery = []
 }
@@ -207,6 +208,9 @@ FractalController.prototype = {
   },
   search: function(){
     this.gallery = this.Lovers.search({keywords:this.query})
+  },
+  random: function(){
+    this.gallery = this.Lovers.random()
   }
 }
 
@@ -219,6 +223,7 @@ FractalController.$inject = ['$resource']
       <div ng:init="fetch()"/>
       <button ng:click="top()">Top</button>
       <input type="text" name="query" /><button ng:click="search()">search</button>
+      <button ng:click="random()">random</button>
       <div ng:repeat="c in gallery">
         <h2>{{c.title}} by {{c.userName}}</h2>
         <fractal:circle></fractal:circle>
