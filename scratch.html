@@ -168,15 +168,24 @@ function make_design(params){
   var svg = makeSVG('svg',{version:"1.1",width:params.r*2,height:params.r*2})
   svg.appendChild(ds)
   svg.appendChild(use_this("#collection0"+params.ns))
-  $('body').append(svg)
+  return svg
 }
 
 $(document).ready(function(){
-    make_design({iterations:4,offset:1,r:729/6})
-    make_design({iterations:4,offset:2,r:729/6,ns:"hi"})
+    $('body').append(make_design({iterations:4,offset:1,r:729/6}))
+    $('body').append(make_design({iterations:4,offset:2,r:729/6,ns:"hi"}))
 });
+    </script>
+    <script>
+angular.widget('fractal:circle',function(compileElement){
+  var compiler = this
+  return function(linkElement){
+    alert('yo')
+  }
+})
     </script>
   </head>
   <body>
+    <fractal:circle></fractal:circle>
   </body>
 </html>
