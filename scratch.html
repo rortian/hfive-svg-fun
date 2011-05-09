@@ -189,9 +189,9 @@ angular.widget('fractal:circle',function(compileElement){
 function FractalController($resource){
   this.fun = ['hi']
   this.Lovers = $resource(
-    "http://www.colourlovers.com/api/palettes/new",
+    "http://www.colourlovers.com/api/palettes/:what",
     {format:'json',jsonCallback:'JSON_CALLBACK'},
-    {get:{method:'JSON',isArray:true}}
+    {get:{method:'JSON',isArray:true,params:{what:"new"}}}
   )
   this.news = []
 }
