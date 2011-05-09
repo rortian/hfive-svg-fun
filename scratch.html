@@ -180,10 +180,9 @@ $(document).ready(function(){
 angular.widget('fractal:circle',function(compileElement){
   var compiler = this
   var what_value = compileElement.attr('what');
-  var scope = angular.scope()
-  alert(scope.$eval(what_value))
+  console.log(this)
   return function(linkElement){
-    function fun(){ alert(what_value) }
+    console.log(this)
     linkElement.append(make_design({iterations:4,offset:3,r:729/6,ns:"hithere"}))
   }
 })
