@@ -215,11 +215,14 @@ function make_design(params){
   if(params.r == undefined){
     params['r'] = 364.5
   }
+  if(params.offset == undefined){
+    params['offset'] = 0
+  }
   var rs = []
   var colors = []
   for(var i = 0;i<params.iterations;i++){
     rs[i] = params.r / (Math.pow(3,i))
-    colors[i] = params.colors[i % params.colors.length]
+    colors[i] = params.colors[(params.offset + i) % params.colors.length]
   }
   var ds = defs({rs:rs,colors:colors})
   $('svg').append(ds)
@@ -227,7 +230,7 @@ function make_design(params){
 }
 
 $(document).ready(function(){
-    make_design({iterations:5})
+    make_design({iterations:5,offset:1})
 });
     </script>
   </head>
