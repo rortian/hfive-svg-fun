@@ -178,10 +178,10 @@ angular.widget('fractal:circle',function(compileElement){
   return function(linkElement){
     var colors = this.c.colors
     var index = this.$index
-    for(var x=0;x<this.c.colors.length;x++){
+    for(var x=0;x<1;x++){
       setTimeout(function(y){ return function(){ 
         linkElement.append(make_design({iterations:4,colors:colors,offset:y,r:95,ns:"num"+index+"sub"+y}))
-    }}(x),index*100)
+    }}(x),index*100+10)
     }
   }
 })
