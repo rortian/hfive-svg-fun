@@ -155,6 +155,7 @@ function make_design(params){
   if(params.offset == undefined){
     params['offset'] = 0
   }
+  alert(params.offset)
   if(params.ns == undefined){
     params['ns'] = ""
   }
@@ -176,7 +177,10 @@ angular.widget('fractal:circle',function(compileElement){
   var compiler = this
   var what_value = compileElement.attr('what');
   return function(linkElement){
-    linkElement.append(make_design({iterations:4,offset:3,r:729/6,ns:"num"+this.$index}))
+    console.log(this)
+    for(var x in this.c.colors){
+      linkElement.append(make_design({iterations:4,colors:this.c.colors,offset:x,r:729/6,ns:"num"+this.$index+"sub"+x}))
+    }
   }
 })
 
@@ -204,8 +208,7 @@ FractalController.$inject = ['$resource']
   <body>
     <div ng:controller="FractalController">
       <div ng:init="fetch()"/>
-      {{news}}
-      <div ng:repeat="f in fun">
+      <div ng:repeat="c in news">
         <fractal:circle></fractal:circle>
       </div>
     </div>
