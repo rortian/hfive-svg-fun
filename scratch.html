@@ -179,8 +179,9 @@ angular.widget('fractal:circle',function(compileElement){
     var colors = this.c.colors
     var index = this.$index
     for(var x=0;x<this.c.colors.length;x++){
-      
-      linkElement.append(make_design({iterations:4,colors:colors,offset:x,r:95,ns:"num"+index+"sub"+x}))
+      setTimeout(function(y){ return function(){ 
+        linkElement.append(make_design({iterations:4,colors:colors,offset:y,r:95,ns:"num"+index+"sub"+y}))
+    }}(x),index*100)
     }
   }
 })
@@ -210,6 +211,7 @@ FractalController.$inject = ['$resource']
     <div ng:controller="FractalController">
       <div ng:init="fetch()"/>
       <div ng:repeat="c in news">
+        <h2>{{c.title}} by {{c.userName}}</h2>
         <fractal:circle></fractal:circle>
       </div>
     </div>
