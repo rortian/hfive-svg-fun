@@ -155,7 +155,6 @@ function make_design(params){
   if(params.offset == undefined){
     params['offset'] = 0
   }
-  alert(params.offset)
   if(params.ns == undefined){
     params['ns'] = ""
   }
@@ -179,11 +178,9 @@ angular.widget('fractal:circle',function(compileElement){
   return function(linkElement){
     var colors = this.c.colors
     var index = this.$index
-    for(var x in this.c.colors){
+    for(var x=0;x<this.c.colors.length;x++){
       
-      linkElement.append(function(y){
-        return make_design({iterations:4,colors:colors,offset:y,r:729/6,ns:"num"+index+"sub"+y})
-      }(x))
+      linkElement.append(make_design({iterations:4,colors:colors,offset:x,r:729/6,ns:"num"+index+"sub"+x}))
     }
   }
 })
