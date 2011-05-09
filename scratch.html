@@ -187,19 +187,30 @@ angular.widget('fractal:circle',function(compileElement){
 
 function FractalController($resource){
   this.fun = ['hi']
-
+  this.Lovers = $resource(
+    "http://www.colourlovers.com/api/palettes/new",
+    {format:'json',jsonCallback:'JSON_CALLBACK'},
+    {get:{method:'JSON',isArray:true}}
+  )
 }
 
 
-FractalController.prototype = {}
+FractalController.prototype = {
+  fetch: function(){
+    this.news = this.Lovers.get()
+  }
+}
+
 FractalController.$inject = ['$resource']
 
     </script>
   </head>
   <body>
     <div ng:controller="FractalController">
+      <div ng:init="fetch()"/>
+      {{news}}
       <div ng:repeat="f in fun">
-        <fractal:circle what="{{$index}}"></fractal:circle>
+        <fractal:circle></fractal:circle>
       </div>
     </div>
   </body>
