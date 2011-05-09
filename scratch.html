@@ -191,7 +191,8 @@ function FractalController($resource){
     "http://www.colourlovers.com/api/palettes/:what",
     {format:'json',jsonCallback:'JSON_CALLBACK'},
     {"new":{method:'JSON',isArray:true,params:{what:"new"}},
-     "top":{method:'JSON',isArray:true,params:{what:"top"}}}
+     "top":{method:'JSON',isArray:true,params:{what:"top"}},
+      search:{method:'JSON',isArray:true} }
   )
   this.gallery = []
 }
@@ -203,6 +204,9 @@ FractalController.prototype = {
   },
   "top": function(){
     this.gallery = this.Lovers.top()
+  },
+  search: function(){
+    this.gallery = this.Lovers.search({keywords:this.query})
   }
 }
 
@@ -214,6 +218,7 @@ FractalController.$inject = ['$resource']
     <div ng:controller="FractalController">
       <div ng:init="fetch()"/>
       <button ng:click="top()">Top</button>
+      <input type="text" name="query" /><button ng:click="search()">search</button>
       <div ng:repeat="c in gallery">
         <h2>{{c.title}} by {{c.userName}}</h2>
         <fractal:circle></fractal:circle>
