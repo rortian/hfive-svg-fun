@@ -33,16 +33,16 @@ function define_collections(args){
   var to_return = []
   var rs = args.rs
   var smallest_index = rs.length - 1
-  var smallest = makeSVG('g',{id:"collection"+(smallest_index-1)})
-  smallest.appendChild(use_this("#circle"+(smallest_index-1)))
-  var smaller = smaller_circles({num:smallest_index,r:rs[smallest_index],ref:"circle"})
+  var smallest = makeSVG('g',{id:"collection"+(smallest_index-1)+args.ns})
+  smallest.appendChild(use_this("#circle"+(smallest_index-1)+args.ns))
+  var smaller = smaller_circles({ns:args.ns,num:smallest_index,r:rs[smallest_index],ref:"circle"})
   for(var k in smaller)
     smallest.appendChild(smaller[k])
   to_return.push(smallest)
   for(var i =smallest_index-2;i>=0;i--){
-    var holder = makeSVG('g',{id:"collection"+i})
-    holder.appendChild(use_this("#circle"+i))
-    smaller = smaller_circles({num:(i+1),r:rs[i+1],ref:"collection"})
+    var holder = makeSVG('g',{id:"collection"+i+args.ns})
+    holder.appendChild(use_this("#circle"+i+args.ns))
+    smaller = smaller_circles({ns:args.ns,num:(i+1),r:rs[i+1],ref:"collection"})
     for(var k in smaller)
       holder.appendChild(smaller[k])
     to_return.push(holder)
@@ -53,7 +53,7 @@ function define_collections(args){
 function smaller_circles(args){
   var to_return = []
   var d = 2*args.r
-  var using = "#" + args.ref + args.num
+  var using = "#" + args.ref + args.num + args.ns
   var transform = "translate("+d+")"
   var group = makeSVG('g',{transform:transform})
   group.appendChild(use_this(using))
@@ -81,7 +81,7 @@ function smaller_circles(args){
 function define_paths(args){
   var to_return = []
   for(var k in args.rs){
-    to_return[k] = make_def_path({r:args.rs[k],num:k,color:args.colors[k]}) 
+    to_return[k] = make_def_path({r:args.rs[k],num:k,ns:args.ns,color:args.colors[k]}) 
   }
   return to_return
 }
@@ -90,7 +90,7 @@ function define_paths(args){
 function make_def_path(args){
   var style = "fill:"+args.color+";fill-opacity:1"
   var path = first_part(args.r)+second_part(args.r)+third_part(args.r)+fourth_part(args.r)
-  return makeSVG('path',{d:path,id:"circle"+args.num, style:style})
+  return makeSVG('path',{d:path,id:"circle"+args.num+args.ns, style:style})
 }
 
 function first_part(r){
