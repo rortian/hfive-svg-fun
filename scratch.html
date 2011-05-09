@@ -200,7 +200,7 @@ FractalController.prototype = {
   <body>
     <div ng:controller="FractalController">
       <div ng:repeat="f in fun">
-        <fractal:circle what="$index"></fractal:circle>
+        <fractal:circle what="{{$index}}"></fractal:circle>
       </div>
     </div>
   </body>
