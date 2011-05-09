@@ -182,7 +182,7 @@ angular.widget('fractal:circle',function(compileElement){
   var what_value = compileElement.attr('what');
   console.log(this)
   return function(linkElement){
-    console.log(this)
+    console.log(this.f)
     linkElement.append(make_design({iterations:4,offset:3,r:729/6,ns:"hithere"}))
   }
 })
