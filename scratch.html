@@ -190,15 +190,19 @@ function FractalController($resource){
   this.Lovers = $resource(
     "http://www.colourlovers.com/api/palettes/:what",
     {format:'json',jsonCallback:'JSON_CALLBACK'},
-    {"new":{method:'JSON',isArray:true,params:{what:"new"}}}
+    {"new":{method:'JSON',isArray:true,params:{what:"new"}},
+     "top":{method:'JSON',isArray:true,params:{what:"top"}}}
   )
-  this.news = []
+  this.gallery = []
 }
 
 
 FractalController.prototype = {
   fetch: function(){
-    this.news = this.Lovers.new()
+    this.gallery = this.Lovers.new()
+  },
+  "top": function(){
+    this.gallery = this.Lovers.top()
   }
 }
 
@@ -209,7 +213,8 @@ FractalController.$inject = ['$resource']
   <body>
     <div ng:controller="FractalController">
       <div ng:init="fetch()"/>
-      <div ng:repeat="c in news">
+      <button ng:click="top()">Top</button>
+      <div ng:repeat="c in gallery">
         <h2>{{c.title}} by {{c.userName}}</h2>
         <fractal:circle></fractal:circle>
       </div>
