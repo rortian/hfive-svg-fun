@@ -177,9 +177,13 @@ angular.widget('fractal:circle',function(compileElement){
   var compiler = this
   var what_value = compileElement.attr('what');
   return function(linkElement){
-    console.log(this)
+    var colors = this.c.colors
+    var index = this.$index
     for(var x in this.c.colors){
-      linkElement.append(make_design({iterations:4,colors:this.c.colors,offset:x,r:729/6,ns:"num"+this.$index+"sub"+x}))
+      
+      linkElement.append(function(y){
+        return make_design({iterations:4,colors:colors,offset:y,r:729/6,ns:"num"+index+"sub"+y})
+      }(x))
     }
   }
 })
