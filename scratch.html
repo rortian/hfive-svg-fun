@@ -183,9 +183,19 @@ angular.widget('fractal:circle',function(compileElement){
     linkElement.append(make_design({iterations:4,offset:3,r:729/6,ns:"hithere"}))
   }
 })
+
+function FractalController(){
+  this.fun = ['hi']
+}
+
+FractalController.prototype = {
+
+}
     </script>
   </head>
   <body>
-    <fractal:circle></fractal:circle>
+    <div ng:controller="FractalController">
+      <fractal:circle></fractal:circle>
+    </div>
   </body>
 </html>
