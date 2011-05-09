@@ -21,7 +21,6 @@ function use_this(id){
 function defs(args){
   var defs = makeSVG('defs',{})
   var paths = define_paths(args)
-  var circles = define_circles(args)
   var collections = define_collections(args)
   for(var k in paths)
     defs.appendChild(paths[k])
@@ -78,15 +77,6 @@ function smaller_circles(args){
   return to_return
 }
 
-function define_circles(args){
-  var to_return = []
-  var rs = args.rs
-  for(var k in rs){
-    to_return[k] = make_circle({num:k,r:rs[k]})
-  }
-  return to_return
-}
-
 
 function define_paths(args){
   var to_return = []
@@ -96,60 +86,6 @@ function define_paths(args){
   return to_return
 }
 
-function make_circle(args){
-  var all = makeSVG('g',{id:"all"+args.num})
-  var use = use_this("#circle"+args.num)
-
-  all.appendChild(use)
-  all.appendChild(quad_one(args))
-  all.appendChild(quad_three(args))
-  all.appendChild(quad_four(args))
-
-  return all
-
-}
-
-function quad_one(args){
-  var r = args.r
-  var use = use_this("#circle"+args.num)
-
-  var transform_string = "translate("+r+") rotate(90,"
-  transform_string += r/2 +","+ r/2 +")"
-
-  var group = makeSVG('g',{transform:transform_string})
-
-  group.appendChild(use)
-
-  return group;
-}
-
-function quad_three(args){
-  var r = args.r
-  var use = use_this("#circle"+args.num)
-
-  var transform_string = "translate(0,"+r+") rotate(-90,"
-  transform_string += r/2 +","+ r/2 +")"
-
-  var group = makeSVG('g',{transform:transform_string})
-
-  group.appendChild(use)
-
-  return group;
-}
-
-function quad_four(args){
-  var r = args.r
-  var use = use_this("#circle"+args.num)
-
-  var transform_string = "translate("+r+","+r+") rotate(180,"
-  transform_string += r/2 +","+ r/2 +")"
-
-  var group = makeSVG('g',{transform:transform_string})
-
-  group.appendChild(use)
-
-  return group;
-}
 
 function make_def_path(args){
   var style = "fill:"+args.color+";fill-opacity:1"
@@ -218,16 +154,19 @@ function make_design(params){
   if(params.offset == undefined){
     params['offset'] = 0
   }
+  if(params.ns == undefined){
+    params['ns'] = ""
+  }
   var rs = []
   var colors = []
   for(var i = 0;i<params.iterations;i++){
     rs[i] = params.r / (Math.pow(3,i))
     colors[i] = params.colors[(params.offset + i) % params.colors.length]
   }
-  var ds = defs({rs:rs,colors:colors})
+  var ds = defs({rs:rs,colors:colors,ns:params.ns})
   var svg = makeSVG('svg',{version:"1.1",width:params.r*2,height:params.r*2})
   svg.appendChild(ds)
-  svg.appendChild(use_this("#collection0"))
+  svg.appendChild(use_this("#collection0"+params.ns))
   $('body').append(svg)
 }
 
