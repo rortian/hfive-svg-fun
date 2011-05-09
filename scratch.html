@@ -2,7 +2,6 @@
 <html xmlns:ng="http://angularjs.org" xmlns:fractal="http://www.pseudopattern.com">
   <head>
     <title>Scratch</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js" type="text/javascript"></script>
     <script src="http://code.angularjs.org/angular-0.9.15.js" type="text/javascript" ng:autobind></script>
     <script type="text/javascript">
 
@@ -191,7 +190,7 @@ function FractalController($resource){
   this.Lovers = $resource(
     "http://www.colourlovers.com/api/palettes/:what",
     {format:'json',jsonCallback:'JSON_CALLBACK'},
-    {get:{method:'JSON',isArray:true,params:{what:"new"}}}
+    {"new":{method:'JSON',isArray:true,params:{what:"new"}}}
   )
   this.news = []
 }
@@ -199,7 +198,7 @@ function FractalController($resource){
 
 FractalController.prototype = {
   fetch: function(){
-    this.news = this.Lovers.get()
+    this.news = this.Lovers.new()
   }
 }
 
