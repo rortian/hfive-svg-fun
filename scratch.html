@@ -180,20 +180,20 @@ $(document).ready(function(){
 angular.widget('fractal:circle',function(compileElement){
   var compiler = this
   var what_value = compileElement.attr('what');
-  console.log(this)
   return function(linkElement){
-    console.log(this.f)
-    linkElement.append(make_design({iterations:4,offset:3,r:729/6,ns:"hithere"}))
+    linkElement.append(make_design({iterations:4,offset:3,r:729/6,ns:"num"+this.$index}))
   }
 })
 
-function FractalController(){
+function FractalController($resource){
   this.fun = ['hi']
-}
-
-FractalController.prototype = {
 
 }
+
+
+FractalController.prototype = {}
+FractalController.$inject = ['$resource']
+
     </script>
   </head>
   <body>
