@@ -225,8 +225,10 @@ function make_design(params){
     colors[i] = params.colors[(params.offset + i) % params.colors.length]
   }
   var ds = defs({rs:rs,colors:colors})
-  $('svg').append(ds)
-  $('svg').append(use_this("#collection0"))
+  var svg = makeSVG('svg',{version:"1.1",width:"729",height:"729"})
+  svg.appendChild(ds)
+  svg.appendChild(use_this("#collection0"))
+  $('body').append(svg)
 }
 
 $(document).ready(function(){
@@ -235,6 +237,5 @@ $(document).ready(function(){
     </script>
   </head>
   <body>
-    <svg version="1.1" width="729" height="729"></svg>
   </body>
 </html>
