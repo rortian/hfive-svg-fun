@@ -170,11 +170,6 @@ function make_design(params){
   svg.appendChild(use_this("#collection0"+params.ns))
   return svg
 }
-
-$(document).ready(function(){
-    $('body').append(make_design({iterations:4,offset:1,r:729/6}))
-    $('body').append(make_design({iterations:4,offset:2,r:729/6,ns:"hi"}))
-});
     </script>
     <script>
 angular.widget('fractal:circle',function(compileElement){
@@ -192,6 +187,7 @@ function FractalController($resource){
     {format:'json',jsonCallback:'JSON_CALLBACK'},
     {get:{method:'JSON',isArray:true}}
   )
+  this.news = []
 }
 
 
