@@ -180,9 +180,7 @@ angular.widget('fractal:circle',function(compileElement){
     for(var x=0;x<colors.length;x++){
       setTimeout(function(y){ return function(){ 
         var svg = make_design({iterations:4,colors:colors,offset:y,r:95,id:"svg"+index+"n"+y,ns:"num"+index+"sub"+y})
-        //svg.tween = "opacity:0.8"
         linkElement.append(svg)
-        //svg.tween("opacity","1.0")
     }}(x),index*100+10)
     }
   }
